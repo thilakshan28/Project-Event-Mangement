@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Travel extends Model
 {
-    use HasFactory; 
+    use HasFactory;
     protected $fillable = [
         'vehicle_name',
         'vehicle_number',
@@ -15,7 +15,4 @@ class Travel extends Model
         'amount'
     ];
 
-    
-
-    
 }

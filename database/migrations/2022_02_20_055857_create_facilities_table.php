@@ -15,10 +15,10 @@ class CreateFacilitiesTable extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
             $table->string('name');
             $table->string('duration');
             $table->decimal('amount',10,2);
+            $table->string('description');
             $table->timestamps();
         });
     }

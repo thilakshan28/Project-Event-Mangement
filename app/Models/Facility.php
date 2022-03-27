@@ -15,7 +15,4 @@ class Facility extends Model
         'amount'
     ];
 
-    public function users(){
-        return $this->belongsToMany(User::class,'facility_user')->withPivot(['date','start_time','end_time'])->withTimestamps();
-    }
 }

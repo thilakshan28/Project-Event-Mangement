@@ -51,7 +51,6 @@
                             <td>{{ $parking->amount}}</td>
 
                             <td>
-
                                 <a href="{{ route('parking.edit',$parking->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
                                 <a href="{{ route('parking.delete',$parking->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
                             </td>

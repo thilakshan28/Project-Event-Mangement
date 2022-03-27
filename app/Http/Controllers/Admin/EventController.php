@@ -22,7 +22,7 @@ class EventController extends Controller
             $events = Event::orderBy('id','desc')->paginate('12');
         }
         return view('admin.event.index',compact('events'));
-        
+
     }
 
     public function create(){
@@ -34,7 +34,7 @@ class EventController extends Controller
 
     public function store(EventStoreRequest $request){
         $data = $request->validated();
-       
+
         Event::create([
             'event_type' => $data['event_type'],
             'amount' => $data['amount'],
@@ -56,10 +56,10 @@ class EventController extends Controller
 
     public function update(Event $event,EventUpdateRequest $request){
         $data=$request->validated();
-        
+
         $event->update($data);
         return redirect()->route('event.index')->with('success', 'Event has been updated successfuly!');
-    
+
     }
 
 
@@ -73,16 +73,18 @@ class EventController extends Controller
     }
 
     public function add(Event $event){
+
         $date= request()->input('date');
-        $time= request()->input('time');     
+        $time= request()->input('time');
         $user_id= Auth::user()->id;
-       
-        $event->customers()->attach([$event->id=>['customer_id'=>$user_id, 'date'=>$date, 'time'=>$time]]); 
+
+
+        $event->customers()->attach([$event->id=>['user_id'=>$user_id,'date'=>$date,'time'=>$time,'status'=>'Pending']]);
 
         return redirect()->back()->with('success','You comment is Published');
 
     }
-    
+
 
 
 }

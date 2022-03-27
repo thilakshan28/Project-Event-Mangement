@@ -39,7 +39,7 @@
                         <th>Event Id</th>
                         <th>Event Type</th>
                         <th>Amount</th>
-                        
+
                         <th></th>
                     </tr>
                 </thead>

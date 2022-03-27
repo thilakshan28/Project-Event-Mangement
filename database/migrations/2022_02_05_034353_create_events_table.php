@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('event_type')->unique();
             $table->decimal('amount',10,2);
+            $table->string('description');
             $table->timestamps();
         });
     }

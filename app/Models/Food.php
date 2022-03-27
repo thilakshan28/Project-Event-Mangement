@@ -13,8 +13,4 @@ class Food extends Model
         'type',
         'amount'
     ];
-
-    public function users(){
-       return $this->belongsToMany(User::class,'food_user')->withPivot(['date'])->withTimestamps();
-    }
 }

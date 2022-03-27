@@ -10,11 +10,7 @@ class Parking extends Model
     use HasFactory;
     protected $fillable = [
         'parking_name',
-        'vehicle_name',        
+        'vehicle_name',
         'amount'
     ];
-
-   
-
-    
 }

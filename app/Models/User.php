@@ -24,7 +24,7 @@ class User extends Authenticatable
         'phone'
     ];
 
- 
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -48,26 +48,5 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class,'role_id');
     }
 
-    public  function managedby(){
-        return $this->belongsToMany(Event::class,'event_manager')->withTimestamps();
-    }
-
-    public  function createdby(){
-        return $this->belongsToMany(Event::class,'event_user')->withPivot(['date','time'])->withTimestamps();
-    }
-
-    public function facilities(){
-        return $this->belongsToMany(Facility::class,'facility_user')->withPivot(['date','start_time','end_time'])->withTimestamps();
-    }
-
-    public function food(){
-        return $this->belongsToMany(Food::class,'food_user')->withPivot(['date','count'])->withTimestamps();
-    }
-
-    public function venues(){
-        return $this->belongsToMany(Venue::class,'user_venue')->withPivot(['date','start_time','end_time'])->withTimestamps();
-    }
-
-    
 }
 

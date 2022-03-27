@@ -10,7 +10,7 @@
                 <div class="float-left">
                     <h2>Add Food</h2>
                 </div>
-                @if(Auth::user()->role->name == 'Admin')
+                @endif
             </div>
             <div class="card-body">
                 @if (session('error'))

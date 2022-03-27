@@ -9,7 +9,6 @@
                 <div class="float-left">
                     <h2>Customers</h2>
                 </div>
-                
             </div>
             <div class="card-body">
                 @if (session('success'))
@@ -44,7 +43,7 @@
                             <td>{{ $customer->name }}</td>
                             <td>{{ $customer->email }}</td>
                             <td>
-                                
+
                                 <a href="{{ route('customer.edit',$customer->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
                                 <a href="{{ route('customer.delete',$customer->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
                             </td>
