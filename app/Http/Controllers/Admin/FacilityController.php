@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\FacilityStoreRequest;
-use App\Http\Requests\Admin\FacilityUpdateRequest; 
+use App\Http\Requests\Admin\FacilityUpdateRequest;
 use App\Models\Facility;
 use Illuminate\Http\Request;
 
@@ -13,10 +13,10 @@ class FacilityController extends Controller
         $q = request()->input('q');
         if($q)
         {
-            $facilities = Facility::where('type','like',"%{$q}%")->orderBy('id', 'desc')->paginate(12);
+            $facilities = Facility::where('name','like',"%{$q}%")->orderBy('id', 'desc')->paginate(12);
         }
         else{
-            $facilities = Facility::orderBy('type','desc')->paginate('12');
+            $facilities = Facility::orderBy('name','desc')->paginate('12');
         }
         return view('admin.facility.index',compact('facilities'));
     }
@@ -27,36 +27,38 @@ class FacilityController extends Controller
 
     public function store(FacilityStoreRequest $request){
         $data = $request->validated();
-       
+
 
         Facility::create([
-            'type' => $data['type'],
+            'description' => $data['description'],
             'name' => $data['name'],
             'duration' => $data['duration'],
             'amount' => $data['amount']
-            
+
             ]);
 
         return redirect()->route('facility.index')->with('success', 'Facility has been created successfuly!');
     }
 
-    
+    public function show(Facility $facility){
+        return view('admin.facility.show',compact('facility'));
+    }
 
-    
+
     public function edit(Facility $facility){
         return view('admin.facility.edit',compact('facility'));
     }
 
     public function update(Facility $facility,FacilityUpdateRequest $request){
         $data=$request->validated();
-        
+
         $facility->update($data);
         return redirect()->route('facility.index')->with('success', 'Facility has been updated successfuly!');
-    
+
     }
 
     public function delete(Facility $facility){
-       
+
         return view('admin.facility.delete',compact('facility'));
     }
 

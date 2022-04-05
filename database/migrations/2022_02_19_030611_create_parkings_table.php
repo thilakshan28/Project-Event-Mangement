@@ -16,13 +16,12 @@ class CreateParkingsTable extends Migration
         Schema::create('parkings', function (Blueprint $table) {
             $table->id();
             $table->string('parking_name');
-            $table->foreignId('nearby');
+            $table->longText('nearby');
             $table->enum('size',['Small','Medium','High']);
             $table->decimal('amount',10,2);
             $table->string('description');
             $table->timestamps();
 
-            $table->foreign('nearby')->references('id')->on('venues')->onDelete('cascade');
         });
     }
 

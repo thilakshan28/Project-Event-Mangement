@@ -9,10 +9,13 @@ class Travel extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'vehicle_name',
+        'vehicle_type',
         'vehicle_number',
         'peoples',
         'amount'
     ];
 
+    public function orders(){
+        return $this->belongsToMany(Order::class,'travel_id');
+    }
 }

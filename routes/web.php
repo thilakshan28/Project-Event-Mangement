@@ -40,8 +40,8 @@ Route::group(['prefix' => 'users',], function () {
 
 Route::group(['prefix' => 'customers',], function () {
     Route::get('/', 'CustomerController@index')->name('customer.index');
-    
-   
+
+
     Route::group(['prefix' => '{customer}'], function () {
     Route::get('/show','CustomerController@show')->name('customer.show');
     Route::get('/edit','CustomerController@edit')->name('customer.edit');
@@ -89,6 +89,7 @@ Route::group(['prefix' => 'parkings',], function () {
     Route::post('/store','ParkingController@store')->name('parking.store');
 
     Route::group(['prefix' => '{parking}'], function () {
+    Route::get('/show','ParkingController@show')->name('parking.show');
     Route::get('/edit','ParkingController@edit')->name('parking.edit');
     Route::patch('/','ParkingController@update')->name('parking.update');
     Route::get('/delete','ParkingController@delete')->name('parking.delete');
@@ -104,6 +105,7 @@ Route::group(['prefix' => 'venues',], function () {
     Route::post('/store','VenueController@store')->name('venue.store');
 
     Route::group(['prefix' => '{venue}'], function () {
+    Route::get('/show','VenueController@show')->name('venue.show');
     Route::get('/edit','VenueController@edit')->name('venue.edit');
     Route::patch('/','VenueController@update')->name('venue.update');
     Route::get('/delete','VenueController@delete')->name('venue.delete');
@@ -113,15 +115,16 @@ Route::group(['prefix' => 'venues',], function () {
 });
 
 Route::group(['prefix' => 'foods',], function () {
-    Route::get('/', 'FoodController@index')->name('food.index');
-    Route::get('/create','FoodController@create')->name('food.create');
-    Route::post('/store','FoodController@store')->name('food.store');
+    Route::get('/', 'MealController@index')->name('food.index');
+    Route::get('/create','MealController@create')->name('food.create');
+    Route::post('/store','MealController@store')->name('food.store');
 
     Route::group(['prefix' => '{food}'], function () {
-    Route::get('/edit','FoodController@edit')->name('food.edit');
-    Route::patch('/','FoodController@update')->name('food.update');
-    Route::get('/delete','FoodController@delete')->name('food.delete');
-    Route::delete('/','FoodController@destroy')->name('food.destroy');
+    Route::get('/show','MealController@show')->name('food.show');
+    Route::get('/edit','MealController@edit')->name('food.edit');
+    Route::patch('/','MealController@update')->name('food.update');
+    Route::get('/delete','MealController@delete')->name('food.delete');
+    Route::delete('/','MealController@destroy')->name('food.destroy');
 
     });
 });
@@ -134,6 +137,7 @@ Route::group(['prefix' => 'facilities',], function () {
     Route::post('/store','FacilityController@store')->name('facility.store');
 
     Route::group(['prefix' => '{facility}'], function () {
+    Route::get('/show','FacilityController@show')->name('facility.show');
     Route::get('/edit','FacilityController@edit')->name('facility.edit');
     Route::patch('/','FacilityController@update')->name('facility.update');
     Route::get('/delete','FacilityController@delete')->name('facility.delete');
@@ -142,8 +146,27 @@ Route::group(['prefix' => 'facilities',], function () {
     });
 });
 
+Route::group(['prefix' => 'orders',], function () {
+    Route::get('/', 'OrderController@index')->name('order.index');
+    Route::get('/create','OrderController@create')->name('order.create');
+    Route::get('ajaxRequest','OrderController@dropdown')->name('get.parking');
+    Route::post('/store','OrderController@store')->name('order.store');
 
+    Route::group(['prefix' => '{order}'], function () {
+    Route::get('/show','OrderController@show')->name('order.show');
+    Route::get('/change','OrderController@change')->name('order.change');
+    Route::post('/change/update','OrderController@changeupdate')->name('order.change.update');
+    Route::get('/edit','OrderController@edit')->name('order.edit');
+    Route::patch('/','OrderController@update')->name('order.update');
+    Route::get('/delete','OrderController@delete')->name('order.delete');
+    Route::delete('/','OrderController@destroy')->name('order.destroy');
 
+    });
+});
+
+Route::group(['prefix' => 'reports'], function() {
+    Route::get('/event','ReportController@event')->name('report.event');
+});
 
 
 });

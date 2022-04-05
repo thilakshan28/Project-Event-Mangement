@@ -9,10 +9,13 @@ class Facility extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'type',
+        'description',
         'name',
         'duration',
         'amount'
     ];
 
+    public function orders(){
+        return $this->hasMany(Facility::class,'facility_id');
+    }
 }

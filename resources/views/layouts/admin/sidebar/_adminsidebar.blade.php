@@ -18,6 +18,13 @@
             <span>Dashboard</span></a>
     </li>
 
+    <li class="nav-item ">
+        <a class="nav-link" href="{{ route('order.index') }}">
+            <i class="fas fa-tags"></i>
+            <span>Orders</span></a>
+    </li>
+
+
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('event.index') }}">
@@ -80,6 +87,11 @@
         <a class="nav-link" href="{{ route('user.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Users</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('report.event') }}">
+            <i class="fas fa-fw fa-file"></i>
+            <span>Report</span></a>
     </li>
 
     <!-- Divider -->

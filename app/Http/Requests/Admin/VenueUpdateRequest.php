@@ -8,18 +8,19 @@ use Illuminate\Validation\Rule;
 
 class VenueUpdateRequest extends FormRequest
 {
-    
+
 
     public function rules()
     {
         $venue = $this->venue;
-       
+
         return [
             'name' =>'required',
-            'accommodation'=>'required',
-            'address'=>'required'
+            'capacity'=>'required',
+            'address'=>'required',
+            'description'=>'required'
         ];
-        
+
     }
 }
 

@@ -35,7 +35,6 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
                         <th>Vehicle Name</th>
                         <th>Vehicle Number</th>
                         <th>Travelable passengers</th>
@@ -46,13 +45,11 @@
                 <tbody>
                     @foreach ($travels as $travel)
                         <tr>
-                            <td>{{ $travel->id }}</td>
-                            <td>{{ $travel->vehicle_name }}</td>
+                            <td>{{ $travel->vehicle_type }}</td>
                             <td>{{ $travel->vehicle_number }}</td>
                             <td>{{ $travel->peoples }}</td>
                             <td>{{ $travel->amount }}</td>
                             <td>
-
                                 <a href="{{ route('travel.edit',$travel->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
                                 <a href="{{ route('travel.delete',$travel->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
                             </td>

@@ -38,6 +38,7 @@ class EventController extends Controller
         Event::create([
             'event_type' => $data['event_type'],
             'amount' => $data['amount'],
+            'description' => $data['description']
         ]);
 
         return redirect()->route('event.index')->with('success', 'Event has been created successfuly!');

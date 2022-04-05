@@ -47,10 +47,11 @@
                         <tr>
                             <td>{{ $parking->id }}</td>
                             <td>{{ $parking->parking_name }}</td>
-                            <td>{{ $parking->vehicle_name }}</td>
+                            <td>{{ $parking->nearby }}</td>
                             <td>{{ $parking->amount}}</td>
 
                             <td>
+                                <a href="{{ route('parking.show',$parking->id)}}" class="btn btn-info btn-icon-split"><span class="text">Show</span></a>
                                 <a href="{{ route('parking.edit',$parking->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
                                 <a href="{{ route('parking.delete',$parking->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
                             </td>

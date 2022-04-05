@@ -37,7 +37,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Accommodation</th>
+                        <th>No of People</th>
                         <th>Address</th>
                         <th></th>
                     </tr>
@@ -47,10 +47,10 @@
                         <tr>
                             <td>{{ $venue->id }}</td>
                             <td>{{ $venue->name }}</td>
-                            <td>{{ $venue->accommodation }}</td>
+                            <td>{{ $venue->capacity }}</td>
                             <td>{{ $venue->address }}</td>
                             <td>
-
+                                <a href="{{ route('venue.show',$venue->id)}}" class="btn btn-info btn-icon-split"><span class="text">Show</span></a>
                                 <a href="{{ route('venue.edit',$venue->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
                                 <a href="{{ route('venue.delete',$venue->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
                             </td>

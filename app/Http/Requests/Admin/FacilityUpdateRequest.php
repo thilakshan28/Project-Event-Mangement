@@ -6,11 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class FacilityUpdateRequest extends FormRequest
 {
-    
+
     public function rules()
     {
         return [
-            'type' =>'required',
+            'description' =>'required',
             'name' =>'required',
             'duration'=>'required',
             'amount'=>'required'

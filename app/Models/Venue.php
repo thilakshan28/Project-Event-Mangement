@@ -10,11 +10,12 @@ class Venue extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'accommodation',
-        'address'
+        'capacity',
+        'address',
+        'description'
     ];
 
-    public function users(){
-        return $this->belongsToMany(User::class,'user_venue')->withPivot(['date','start_time','end_time'])->withTimestamps();
+    public function orders(){
+        return $this->hasMany(Order::class,'venue_id');
     }
 }

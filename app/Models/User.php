@@ -48,5 +48,14 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class,'role_id');
     }
 
+    public function manage(){
+        return $this->hasMany(Order::class,'manager_id');
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class,'customer_id');
+    }
+
+
 }
 

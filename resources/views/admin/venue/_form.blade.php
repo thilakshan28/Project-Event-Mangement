@@ -1,7 +1,7 @@
 {!! Form::text('name', 'Name') !!}
-{!! Form::text('accommodation', 'Accommodation') !!}
+{!! Form::text('capacity', 'No of People') !!}
 {!! Form::text('address', 'Address') !!}
-
+{!! Form::textarea('description', 'Description') !!}
 
 
 

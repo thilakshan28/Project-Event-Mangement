@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id');
+            $table->foreignId('venue_id');
             $table->foreignId('event_id');
             $table->foreignId('manager_id')->nullable();
             $table->date('startdate');
@@ -23,9 +24,9 @@ class CreateOrdersTable extends Migration
             $table->time('starttime');
             $table->time('endtime');
             $table->enum('status',['Approved','Rejected','Pending']);
-            $table->bigInteger('food_servings')->nullable();
             $table->foreignId('park_id')->nullable();
             $table->foreignId('facility_id')->nullable();
+            $table->foreignId('travel_id')->nullable();
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
@@ -33,6 +34,8 @@ class CreateOrdersTable extends Migration
             $table->foreign('manager_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('park_id')->references('id')->on('parkings')->onDelete('cascade');
             $table->foreign('facility_id')->references('id')->on('facilities')->onDelete('cascade');
+            $table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
+            $table->foreign('travel_id')->references('id')->on('travel')->onDelete('cascade');
         });
     }
 

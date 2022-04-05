@@ -8,18 +8,19 @@ use Illuminate\Validation\Rule;
 
 class EventUpdateRequest extends FormRequest
 {
-    
+
 
     public function rules()
     {
         $event = $this->event;
-       
+
         return [
             'event_type' =>'required',
-            'amount' => 'required',
-            
+            'amount' =>'required',
+            'description' => 'required'
+
         ];
-        
+
     }
 }
 

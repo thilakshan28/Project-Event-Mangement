@@ -11,6 +11,10 @@ class Event extends Model
     protected $fillable = [
         'event_type',
         'amount',
+        'description'
     ];
 
+    public function orders(){
+        return $this->hasMany(Order::class,'event_id');
+    }
 }

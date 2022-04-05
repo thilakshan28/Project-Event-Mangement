@@ -18,52 +18,10 @@
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('event.index') }}">
-            <i class="fas fa-fw fa-calendar-alt"></i>
-            <span>Events</span></a>
-    </li>
-
-     <!-- Nav Item - Dashboard -->
-     <li class="nav-item">
-        <a class="nav-link" href="{{ route('venue.index') }}">
-            <i class="fas fa-fw fa-calendar-check"></i>
-            <span>Venues</span></a>
-    </li>
-
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('food.index') }}">
-            <i class="fas fa-fw fa-hamburger"></i>
-            <span>Food</span></a>
-    </li>
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('facility.index') }}">
-            <i class="fas fa-fw  fa-music"></i>
-            <span>Facilities</span></a>
-    </li>
-
-
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransportation"
-            aria-expanded="true" aria-controls="collapseTransportation">
-            <i class="fas fa-fw fa-bus-alt"></i>
-            <span>Transportation</span>
-        </a>
-        <div id="collapseTransportation" class="collapse" aria-labelledby="headingTransportation"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Transportation:</h6>
-                <a class="collapse-item" href="{{ route('travel.index') }}">Travel</a>
-                <a class="collapse-item" href="{{ route('parking.index') }}">Parking</a>
-            </div>
-        </div>
+        <a class="nav-link" href="{{ route('order.index') }}">
+            <i class="fas fa-tags"></i>
+            <span>Orders</span></a>
     </li>
 
     <!-- Divider -->

@@ -50,7 +50,7 @@
                             <td>{{ $food->type }}</td>
                             <td>{{ $food->amount }}</td>
                             <td>
-
+                                <a href="{{ route('food.show',$food->id)}}" class="btn btn-info btn-icon-split"><span class="text">Show</span></a>
                                 <a href="{{ route('food.edit',$food->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
                                 <a href="{{ route('food.delete',$food->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
                             </td>

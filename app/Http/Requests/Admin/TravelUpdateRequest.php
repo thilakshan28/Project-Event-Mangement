@@ -8,19 +8,19 @@ use Illuminate\Validation\Rule;
 
 class TravelUpdateRequest extends FormRequest
 {
-    
+
 
     public function rules()
     {
         $travel = $this->travel;
-       
+
         return [
-            'vehicle_name' =>'required',
+            'vehicle_type' =>'required',
             'vehicle_number' => 'required',
             'peoples'=>'required',
             'amount'=>'required'
         ];
-        
+
     }
 }
 

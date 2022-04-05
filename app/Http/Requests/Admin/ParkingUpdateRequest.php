@@ -8,18 +8,20 @@ use Illuminate\Validation\Rule;
 
 class ParkingUpdateRequest extends FormRequest
 {
-    
+
 
     public function rules()
     {
         $parking = $this->parking;
-       
+
         return [
             'parking_name' =>'required',
-            'vehicle_name' =>'required',
-            'amount'=>'required'
+            'size' => 'required',
+            'amount'=>'required',
+            'nearby' => 'required',
+            'description' => 'required'
         ];
-        
+
     }
 }
 

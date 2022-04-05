@@ -36,7 +36,6 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
-                        <th>Type</th>
                         <th>Name</th>
                         <th>Duration</th>
                         <th>Amount</th>
@@ -47,12 +46,11 @@
                     @foreach ($facilities as $facility)
                         <tr>
                             <td>{{ $facility->id }}</td>
-                            <td>{{ $facility->type }}</td>
                             <td>{{ $facility->name }}</td>
                             <td>{{ $facility->duration }}</td>
                             <td>{{ $facility->amount }}</td>
                             <td>
-
+                                <a href="{{ route('facility.show',$facility->id)}}" class="btn btn-info btn-icon-split"><span class="text">Show</span></a>
                                 <a href="{{ route('facility.edit',$facility->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
                                 <a href="{{ route('facility.delete',$facility->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
                             </td>

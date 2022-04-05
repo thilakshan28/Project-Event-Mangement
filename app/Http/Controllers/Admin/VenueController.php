@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\VenueStoreRequest;
 use App\Http\Requests\Admin\VenueUpdateRequest;
 use Illuminate\Http\Request;
-use App\Models\Venue; 
+use App\Models\Venue;
 
 class VenueController extends Controller
 {
@@ -27,35 +27,37 @@ class VenueController extends Controller
 
     public function store(VenueStoreRequest $request){
         $data = $request->validated();
-       
+
 
         Venue::create([
             'name' => $data['name'],
-            'accommodation' => $data['accommodation'],
-            'address' => $data['address']
-            
+            'capacity' => $data['capacity'],
+            'address' => $data['address'],
+            'description'=>$data['description']
+
             ]);
 
         return redirect()->route('venue.index')->with('success', 'Venue has been created successfuly!');
     }
 
-    
+    public function show(Venue $venue){
+        return view('admin.venue.show',compact('venue'));
+    }
 
-    
     public function edit(Venue $venue){
         return view('admin.venue.edit',compact('venue'));
     }
 
     public function update(Venue $venue,VenueUpdateRequest $request){
         $data=$request->validated();
-        
+
         $venue->update($data);
         return redirect()->route('venue.index')->with('success', 'Venue has been updated successfuly!');
-    
+
     }
 
     public function delete(Venue $venue){
-       
+
         return view('admin.venue.delete',compact('venue'));
     }
 

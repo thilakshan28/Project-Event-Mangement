@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title','Event List')
+@section('title','Meal List')
 @section('content')
 
 <div class="row">
@@ -7,16 +7,9 @@
         <div class="card">
             <div class="card-header">
                 <div >
-                   
                     <a href="{{route('event.index')}}" class="float-left btn btn-primary btn-circle"><i class="fas fa-arrow-left"></i></a>
                     <h2 class="float-left ml-2">Event Details</h2>
-                   
-                   
-                    
                 </div>
-               
-                
-                
             </div>
             <div class="card-body">
 
@@ -27,9 +20,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
-                    <tr><td>Amount :{{ $event->amount }}</td></tr>
-                   
+
+                    <tr><td>Amount : {{ $event->amount }}</td></tr>
+                    <tr><td>Description : {{ $event->description }}</td></tr>
                 </tbody>
             </table>
         </div>

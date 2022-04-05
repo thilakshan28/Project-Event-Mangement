@@ -10,7 +10,15 @@ class Parking extends Model
     use HasFactory;
     protected $fillable = [
         'parking_name',
-        'vehicle_name',
+        'nearby',
+        'size',
+        'description',
         'amount'
     ];
+
+    protected $casts =['nearby' => 'array'];
+
+    public function orders(){
+        return $this->hasMany(Order::class,'park_id');
+    }
 }
